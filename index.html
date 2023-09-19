@@ -37,13 +37,13 @@
                 <p>Welcome to No Coder's Community</p>
             </div>
             <form id="form" action="" method="post">
-                <input type="text" name="name" id="name" placeholder="Name" required maxlength="15">
-                <input type="email" name="email" id="email" placeholder="Email" required maxlength="30">
-                <div id="dropdown-container"></div>
-                <!--Get Country, Apply rule to check zip-->
-                <input type="number" name="zip" id="zip" placeholder="ZIP Code" required>
-                <input type="password" name="password" id="password" placeholder="Password" required>
-                <input type="password" name="repeat-password" id="repeat-password" placeholder="Repeat Password" required>
+                <input class="validate" type="text" name="name" id="name" placeholder="Name" required maxlength="15">
+                <input class="validate" type="email" name="email" id="email" placeholder="Email" required maxlength="30">
+                <div class="validate" id="dropdown-container"></div>
+                <!--If choose country, zip placeholder regex zip country-->
+                <input class="validate" type="number" name="zip" id="zip" placeholder="ZIP Code" maxlength="10" required>
+                <input class="validate" type="password" name="password" id="password" minlength="8" maxlength="16" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@!])[A-Za-z\d@!]{8,}$" placeholder="Password" required>
+                <input class="validate" type="password" name="repeat-password" id="repeat-password" minlength="8" maxlength="16" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@!])[A-Za-z\d@!]{8,}$" placeholder="Repeat Password" required>
                 <button id="register" type="submit">Register</button>
             </form>
 
