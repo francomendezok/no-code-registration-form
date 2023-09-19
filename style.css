@@ -2,17 +2,17 @@ body, html {
     width: 100%;
     height: 100%;
     overflow: hidden;
-    background-color: grey;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 0;
+    padding: 0;
 }
 
 .container {
     display: flex;
     width: 100%;
     height: 100%;
-    border-radius: 60px;
     background: #FFF;
 }
 
@@ -34,25 +34,24 @@ body, html {
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    border-top-right-radius: 60px;
-    border-bottom-right-radius: 60px;
 }
 
 #logo {
-    width: 150px;
-    height: 150px;
+    width: 300px;
+    height: 300px;
 }
 
 .logo-section {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    height: 20%;
 }
 
 
 .select-language {
     display: inline-flex;
-    padding: 1px 24px;
+    padding: 17px 24px;
     flex-direction: row;
     align-items: center;
     gap: 10px;
@@ -132,4 +131,78 @@ a {
     color: #FEC00F;
     text-align: center;
     text-decoration: none;
+}
+
+#form {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 40%;
+    justify-content: space-around;
+    align-items: center;
+    align-self: center;
+}
+
+#dropdown-container, select, option {
+    width: 100%;
+    color: #2E2E2E;
+    border: 1px solid lightgrey;
+    border-radius: 6px;
+    text-align: center;
+}
+
+select {
+    height: 100%;
+    border: none;
+    outline: none;
+}
+
+
+
+input, #dropdown-container {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    height: 10%;
+    font-family: Cabin;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    border: 1px solid lightgrey;
+    border-radius: 6px;
+    text-align: center;
+}
+
+#register {
+    width: 100%;
+    height: 30px;
+    border-radius: 30px;
+    background: #000;
+    color: #FFF;
+    font-family: Cabin;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    cursor: pointer;
+}
+
+input::placeholder, #dropdown-container, select, option {
+    color: #2E2E2E;
+    font-family: Cabin;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+  
+
+input:valid {
+    border: 2px solid green;
+}
+
+
+#language {
+    cursor: pointer;
 }

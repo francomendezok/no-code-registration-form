@@ -4,6 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="./images/no-code.png" type="image/x-icon">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cabin&display=swap');
+        </style>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cabin&display=swap');
+      </style>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Urbanist&display=swap');
+      </style>
+    <script src="./main.js" defer></script>
     <title>No Code Registration Form</title>
 </head>
 <body>
@@ -11,20 +22,31 @@
         <div class="log-in">
             <div class="logo-section">
                 <div class="logo">
-                    <img id="logo" src="./images/logo.png" alt="">
+                    <img id="logo" src="./images/big-logo.png" alt="">
                 </div>
                     <div class="select-language">
-                        <img src="./images/uk.png" alt="">
-                        <p>EN</p>
-                        <!-- Select Dropdown With English and Spanish --> 
-                        <img id="dropdown" src="./images/dropdown.png" alt="">
+                        <img id="flag" src="./images/uk.png" alt="">
+                        <select name="language" id="language">
+                            <option value="EN">EN</option>
+                            <option value="SP">SP</option>
+                        </select>
                     </div>
             </div>
             <div class="title">
                 <p id="welcome">WELCOME BUILDER</p>
-                <p>Welcome to No Coders Community</p>
+                <p>Welcome to No Coder's Community</p>
             </div>
-            <form action="" method="post"></form>
+            <form id="form" action="" method="post">
+                <input type="text" name="name" id="name" placeholder="Name" required maxlength="15">
+                <input type="email" name="email" id="email" placeholder="Email" required maxlength="30">
+                <div id="dropdown-container"></div>
+                <!--Get Country, Apply rule to check zip-->
+                <input type="number" name="zip" id="zip" placeholder="ZIP Code" required>
+                <input type="password" name="password" id="password" placeholder="Password" required>
+                <input type="password" name="repeat-password" id="repeat-password" placeholder="Repeat Password" required>
+                <button id="register" type="submit">Register</button>
+            </form>
+
             <p id="have-account">Already have an account?<a href="http://" target="_blank" rel="noopener noreferrer"> Log In</a></p>
         </div>
         <div class="image">
