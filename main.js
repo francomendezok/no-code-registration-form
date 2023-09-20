@@ -36,17 +36,11 @@ function createDropdown(countriesData) {
 function hasError(field) {
   // Don't validate submits, buttons, file and reset inputs, and disabled fields
   if (field.disabled || field.type === 'file' || field.type === 'reset' || field.type === 'submit' || field.type === 'button') return;
-  const password = document.getElementById('password');
   // Get validity
   const { validity } = field;
 
   // If valid, return null
   if (validity.valid) return;
-
-  if (field.id === 'repeat-password') {
-    const secondPassword = field.id;
-    if (secondPassword.value && secondPassword.value !== password.value) return 'Passwords should be the same';
-  }
 
   // If field is required and empty
   if (validity.valueMissing) return 'Please fill out this field.';
@@ -81,7 +75,7 @@ function hasError(field) {
   // If pattern doesn't match
   if (validity.patternMismatch) {
     // If pattern info is included, return custom error
-    if (field.type === 'password') return 'Should Have an UpperCase, LowerCase, Number or Special Character';
+    if (field.type === 'password') return 'Should Have an UpperCase, LowerCase, Number and Special Character';
     if (field.hasAttribute('title')) return field.getAttribute('title');
 
     // Otherwise, generic error
@@ -141,6 +135,16 @@ function removeError(field) {
   message.style.visibility = 'hidden';
 }
 
+function checkPasswords() {
+  const password = document.getElementById('password');
+  const secondPassword = document.getElementById('repeat-password');
+  if (password.validity.valid && secondPassword.validity.valid) {
+    if (password.value !== secondPassword.value) {
+      showError(password, 'Passwords are not equal');
+    }
+  }
+}
+
 fetch('https://restcountries.com/v3.1/all')
   .then((response) => response.json())
   .then((data) => {
@@ -177,6 +181,7 @@ document.addEventListener('blur', (event) => {
   } else {
     removeError(event.target);
   }
+  checkPasswords();
 }, true);
 document.addEventListener('submit', (event) => {
   // Get all of the form elements
@@ -201,6 +206,7 @@ document.addEventListener('submit', (event) => {
     event.preventDefault();
     hasErrors.focus();
   }
+  checkPasswords();
 }, false);
 
 const dropdownContainer = document.getElementById('dropdown-container');
